@@ -37,13 +37,28 @@
 //    "A soma dos ímpares é: {1}", pairSum, oddSum);
 //Console.WriteLine("Exiting Program...");
 
-int num= 0, somaPar = 0, somaImpar = 0;
+int num, somaPar = 0, somaImpar = 0;
 
-do
+RecebeNumerosParaSeMil();
+RespondeUsuario();
+
+void RecebeNumerosParaSeMil()
 {
-    Console.WriteLine("Informe um número inteiro!");
+    do
+    {
+        RecebeValoresDoUsuario();
+        VerificaNum();
+
+    } while (num < 1000);
+}
+void RecebeValoresDoUsuario()
+{
+    Console.WriteLine("Informe um número entre 0 e 999");
     num = int.Parse(Console.ReadLine());
-    if((num < 1000 ) && (num > 0))
+}
+void VerificaNum()
+{
+    if ((num < 1000) && (num > 0))
     {
         if (num % 2 == 0)
         {
@@ -53,8 +68,10 @@ do
         {
             somaImpar += num;
         }
-    }    
-
-}while(num < 1000);
-Console.WriteLine("Soma dos pares: {0}\n" +
-    "Soma dos impares: ", somaPar, somaImpar);
+    }
+}
+void RespondeUsuario()
+{
+    Console.WriteLine("Soma dos pares: {0}\n" +
+    "Soma dos impares: {1}", somaPar, somaImpar);
+}
